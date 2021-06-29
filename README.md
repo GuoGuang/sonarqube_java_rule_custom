@@ -75,4 +75,4 @@
     System.out.println(tree.lastToken().line());
     }
     ```
-  - resources 文件夹下的xxx.json中的constantCost：代码味道的修复成本评估 
+- resources 文件夹下的xxx.json中的constantCost：代码味道的修复成本评估 
