@@ -1,0 +1,13 @@
+{
+  "title": "FeignClient类和方法必须写上注释，且每个注释的字符不小于30",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "5min"
+  },
+  "tags": [
+    "pitfall","company"
+  ],
+  "defaultSeverity": "Minor"
+}

@@ -11,6 +11,7 @@ import com.madaoo.sonarqube.checks.concurrent.CreateThreadShouldPoolCheck;
 import com.madaoo.sonarqube.checks.constant.AvoidUseMagicNumberCheck;
 import com.madaoo.sonarqube.checks.exception.AvoidReturnInFinallyCheck;
 import com.madaoo.sonarqube.checks.exception.MethodReturnWrapperCheck;
+import com.madaoo.sonarqube.checks.feign.FeignClientCommentaryCheck;
 import com.madaoo.sonarqube.checks.flowcontrol.*;
 import com.madaoo.sonarqube.checks.naming.*;
 import com.madaoo.sonarqube.checks.oop.*;
@@ -56,6 +57,7 @@ public final class RulesList {
                 .add(StringOrNotNullInsideEquailsCheck.class).add(SwitchHaveDefaultCheck.class)
                 .add(SwitchCaseEndWithBreakCheck.class).add(SwitchDefaultMustLastCheck.class)
                 .add(CodeBlockMaxLineCheck.class)
+                .add(FeignClientCommentaryCheck.class)
                 .build();
     }
 

@@ -1,0 +1,46 @@
+<p>ExceptionClassNameCheck Check</p>
+<h2>Noncompliant Code Example</h2>
+<pre>
+  /**
+ * 促销活动渠道feign接口  // Noncompliant
+ *
+ * @author abc
+ */
+@FeignClient(PromConstant.APPLICATION_PROM_MANAGER_NAME)
+public interface IActivityChannelClient {
+	public static final String API_PREFIX = "/client/activityChannel";
+	public static final String LIST_BY_ACTIVITY_IDS = API_PREFIX + "/by-activityids";
+	public static final String LIST_BY_ACTIVITY_ID = API_PREFIX + "/by-activityid";
+
+  /**
+	 * 根据活动ID获取活动渠道  // Noncompliant
+	 */
+	@GetMapping(LIST_BY_ACTIVITY_ID)
+	public R  listByActivityId(@RequestParam Long activityId);
+}
+</pre>
+<h2>Compliant Solution</h2>
+<pre>
+/**
+ * @company: 北京英克科技有限公司
+ * @author: abc
+ * @email: abc@inca.com
+ * @className: IActivityChannelClient
+ * @description: IActivityChannelClient
+ * @version: V1.0
+ * @date: 2021年5月18日 下午3点34分
+ **/
+@FeignClient(PromConstant.APPLICATION_PROM_MANAGER_NAME)
+public interface IActivityChannelClient {
+	public static final String API_PREFIX = "/client/activityChannel";
+	public static final String LIST_BY_ACTIVITY_IDS = API_PREFIX + "/by-activityids";
+	public static final String LIST_BY_ACTIVITY_ID = API_PREFIX + "/by-activityid";
+
+  /**
+	 * 根据活动ID获取活动渠道
+     * @param activityId   活动id
+     * @return 促销活动 集合
+	 */
+	@GetMapping(LIST_BY_ACTIVITY_ID)
+	public R  listByActivityId(@RequestParam Long activityId);
+</pre>
