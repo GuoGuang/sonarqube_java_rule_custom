@@ -11,9 +11,9 @@
 3. 将打包好的jar放到extensions/plugins 目录下之后重启
 
 ## 开发指南
-- [自定义规则开发指南](https://docs.sonarqube.org/display/PLUG/Custom+Rules+for+Java)
+- [自定义规则开发指南](https://github.com/SonarSource/sonar-java/blob/master/docs/CUSTOM_RULES_101.md)
 
-- [官方示例](https://github.com/SonarSource/sonar-custom-rules-examples/tree/master/java-custom-rules)
+- [官方示例](https://github.com/SonarSource/sonar-java/tree/master/docs/java-custom-rules-example)
 
 ## 已完成的规则
 
