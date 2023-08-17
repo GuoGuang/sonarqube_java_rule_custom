@@ -1,13 +1,14 @@
 {
   "title": "不允许任何魔法值 （ 即未经预先定义的常量 ） 直接出现在代码中",
-  "type": "CODE_SMELL",  
+  "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {
     "func": "Constant\/Issue",
     "constantCost": "5min"
   },
   "tags": [
-    "pitfall","company"
+    "pitfall",
+    "company"
   ],
   "defaultSeverity": "MAJOR"
 }

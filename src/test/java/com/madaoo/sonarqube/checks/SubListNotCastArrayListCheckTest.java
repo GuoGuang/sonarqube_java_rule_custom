@@ -5,8 +5,8 @@ import org.junit.Test;
 import org.sonar.java.checks.verifier.JavaCheckVerifier;
 
 public class SubListNotCastArrayListCheckTest {
-	@Test
-	public void detected() {
-		JavaCheckVerifier.verify("src/test/files/SubListDemo.java", new SubListNotCastArrayListCheck());
-	}
+    @Test
+    public void detected() {
+        JavaCheckVerifier.verify("src/test/files/SubListDemo.java", new SubListNotCastArrayListCheck());
+    }
 }

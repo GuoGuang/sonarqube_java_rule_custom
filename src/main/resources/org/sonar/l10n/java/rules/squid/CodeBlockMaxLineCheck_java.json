@@ -1,13 +1,14 @@
 {
   "title": "建议函数内代码行数不要超过50行",
-  "type": "CODE_SMELL",  
+  "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {
     "func": "Constant\/Issue",
     "constantCost": "5min"
   },
   "tags": [
-    "pitfall","company"
+    "pitfall",
+    "company"
   ],
   "defaultSeverity": "MINOR"
 }

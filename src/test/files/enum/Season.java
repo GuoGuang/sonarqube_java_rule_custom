@@ -1,6 +1,6 @@
 package com.madaoo.sonarqube;
 
 public enum Season {
-	spring, // Noncompliant
-	summer // Noncompliant
+    spring, // Noncompliant
+    summer // Noncompliant
 }

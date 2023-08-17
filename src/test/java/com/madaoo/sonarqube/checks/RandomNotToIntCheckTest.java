@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.sonar.java.checks.verifier.JavaCheckVerifier;
 
 public class RandomNotToIntCheckTest {
-	@Test
+    @Test
     public void test() {
         JavaCheckVerifier.verify("src/test/files/RandomFloatToIntCheck.java", new RandomNotToIntCheck());
     }

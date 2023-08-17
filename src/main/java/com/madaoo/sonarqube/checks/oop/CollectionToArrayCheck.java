@@ -18,31 +18,31 @@ import java.util.List;
  */
 @Rule(key = "CollectionToArrayCheck")
 public class CollectionToArrayCheck extends AbstractMethodDetectionImpro {
-	private static final String ISSUE_MSG = "使用集合转数组的方法,必须使用集合的toArray(T[] array),传入的是类型完全一样的数组";
+    private static final String ISSUE_MSG = "使用集合转数组的方法,必须使用集合的toArray(T[] array),传入的是类型完全一样的数组";
 
-	private static final MethodMatcher COLLECTION_TO_ARRAY = MethodMatcher.create()
-			.typeDefinition(TypeCriteria.subtypeOf("java.util.Collection")).name("toArray").withoutParameter();
+    private static final MethodMatcher COLLECTION_TO_ARRAY = MethodMatcher.create()
+            .typeDefinition(TypeCriteria.subtypeOf("java.util.Collection")).name("toArray").withoutParameter();
 
-	@Override
-	protected List<MethodMatcher> getMethodInvocationMatchers() {
-		return ImmutableList.of(COLLECTION_TO_ARRAY);
-	}
+    @Override
+    protected List<MethodMatcher> getMethodInvocationMatchers() {
+        return ImmutableList.of(COLLECTION_TO_ARRAY);
+    }
 
-	@Override
-	protected void onMethodInvocationFound(MethodInvocationTree mit) {
-		Tree parent = mit.parent();
-		if (parent.is(Tree.Kind.TYPE_CAST)) {
-			checkCast(((TypeCastTree) parent).symbolType(), mit);
-		}
-	}
+    @Override
+    protected void onMethodInvocationFound(MethodInvocationTree mit) {
+        Tree parent = mit.parent();
+        if (parent.is(Tree.Kind.TYPE_CAST)) {
+            checkCast(((TypeCastTree) parent).symbolType(), mit);
+        }
+    }
 
-	private void checkCast(Type type, MethodInvocationTree mit) {
-		if (type.isArray() && !type.is("java.lang.Object[]")) {
-			Type elementType = ((Type.ArrayType) type).elementType();
-			if (!((JavaType) elementType).isTagged(JavaType.TYPEVAR)) {
-				reportIssue(mit, ISSUE_MSG);
-			}
-		}
-	}
+    private void checkCast(Type type, MethodInvocationTree mit) {
+        if (type.isArray() && !type.is("java.lang.Object[]")) {
+            Type elementType = ((Type.ArrayType) type).elementType();
+            if (!((JavaType) elementType).isTagged(JavaType.TYPEVAR)) {
+                reportIssue(mit, ISSUE_MSG);
+            }
+        }
+    }
 
 }

@@ -26,15 +26,15 @@ import static org.fest.assertions.Assertions.assertThat;
 
 public class MyJavaRulesDefinitionTest {
 
-  @Test
-  public void test() {
-    MyJavaRulesDefinition rulesDefinition = new MyJavaRulesDefinition();
-    RulesDefinition.Context context = new RulesDefinition.Context();
-    rulesDefinition.define(context);
-    RulesDefinition.Repository repository = context.repository(MyJavaRulesDefinition.REPOSITORY_KEY);
+    @Test
+    public void test() {
+        MyJavaRulesDefinition rulesDefinition = new MyJavaRulesDefinition();
+        RulesDefinition.Context context = new RulesDefinition.Context();
+        rulesDefinition.define(context);
+        RulesDefinition.Repository repository = context.repository(MyJavaRulesDefinition.REPOSITORY_KEY);
 
-    assertThat(repository.name()).isEqualTo("JenFire Ali Analyzer");
-    assertThat(repository.language()).isEqualTo("java");
-    assertThat(repository.rules()).hasSize(RulesList.getChecks().size());
-  }
+        assertThat(repository.name()).isEqualTo("JenFire Ali Analyzer");
+        assertThat(repository.language()).isEqualTo("java");
+        assertThat(repository.rules()).hasSize(RulesList.getChecks().size());
+    }
 }

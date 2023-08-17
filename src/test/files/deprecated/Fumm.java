@@ -1,6 +1,6 @@
 public class Fumm {
-	@Deprecated
-	public void aa() {
+    @Deprecated
+    public void aa() {
 
-	}
+    }
 }

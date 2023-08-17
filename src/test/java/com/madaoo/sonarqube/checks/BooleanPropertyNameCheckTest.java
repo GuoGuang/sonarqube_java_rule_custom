@@ -5,9 +5,9 @@ import org.junit.Test;
 import org.sonar.java.checks.verifier.JavaCheckVerifier;
 
 public class BooleanPropertyNameCheckTest {
-	
-	@Test
-	public void test01() {
-		JavaCheckVerifier.verify("src/test/files/boolean/BooleanPropertyName.java", new BooleanPropertyNameCheck());
-	}
+
+    @Test
+    public void test01() {
+        JavaCheckVerifier.verify("src/test/files/boolean/BooleanPropertyName.java", new BooleanPropertyNameCheck());
+    }
 }

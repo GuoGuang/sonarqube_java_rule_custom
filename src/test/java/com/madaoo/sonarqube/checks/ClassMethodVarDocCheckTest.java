@@ -5,9 +5,9 @@ import org.junit.Test;
 import org.sonar.java.checks.verifier.JavaCheckVerifier;
 
 public class ClassMethodVarDocCheckTest {
-	
-	@Test
-	public void test() {
-		JavaCheckVerifier.verify("src/test/files/author/aController.java", new ClassMethodVarDocCheck());
-	}
+
+    @Test
+    public void test() {
+        JavaCheckVerifier.verify("src/test/files/author/aController.java", new ClassMethodVarDocCheck());
+    }
 }

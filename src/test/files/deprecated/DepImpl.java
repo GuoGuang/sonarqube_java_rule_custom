@@ -1,6 +1,6 @@
-public class DepImpl extends Dep{ //Noncompliant 
+public class DepImpl extends Dep { //Noncompliant
 }
 
 @Deprecated
-class Dep{
+class Dep {
 }

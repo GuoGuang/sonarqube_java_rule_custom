@@ -13,27 +13,27 @@ import java.util.List;
 @SonarLintSide
 public class MyJavaFileCheckRegistrar implements CheckRegistrar {
 
-	/**
-	 * 注册将在分析过程中用于实例化检查的类。
-	 */
-	@Override
-	public void register(RegistrarContext registrarContext) {
-		// 调用registerClassesForRepository将这些类与正确的存储库关键字相关联
-		registrarContext.registerClassesForRepository(MyJavaRulesDefinition.REPOSITORY_KEY, checkClasses(),
-				testCheckClasses());
-	}
+    /**
+     * 注册将在分析过程中用于实例化检查的类。
+     */
+    @Override
+    public void register(RegistrarContext registrarContext) {
+        // 调用registerClassesForRepository将这些类与正确的存储库关键字相关联
+        registrarContext.registerClassesForRepository(MyJavaRulesDefinition.REPOSITORY_KEY, checkClasses(),
+                testCheckClasses());
+    }
 
-	/**
-	 * 列出插件提供的所有主要检查
-	 */
-	public static List<Class<? extends JavaCheck>> checkClasses() {
-		return RulesList.getJavaChecks();
-	}
+    /**
+     * 列出插件提供的所有主要检查
+     */
+    public static List<Class<? extends JavaCheck>> checkClasses() {
+        return RulesList.getJavaChecks();
+    }
 
-	/**
-	 * 列出插件提供的所有测试检查
-	 */
-	public static List<Class<? extends JavaCheck>> testCheckClasses() {
-		return RulesList.getJavaTestChecks();
-	}
+    /**
+     * 列出插件提供的所有测试检查
+     */
+    public static List<Class<? extends JavaCheck>> testCheckClasses() {
+        return RulesList.getJavaTestChecks();
+    }
 }

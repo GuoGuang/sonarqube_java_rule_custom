@@ -1,4 +1,3 @@
-
-public class AgeOutOfBound extends Exception{ // Noncompliant
+public class AgeOutOfBound extends Exception { // Noncompliant
 
 }

@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.sonar.java.checks.verifier.JavaCheckVerifier;
 
 public class ExceptionClassNameCheckTest {
-	@Test
+    @Test
     public void test() {
         JavaCheckVerifier.verify("src/test/files/exception/AgeOutOfBound.java", new ExceptionClassNameCheck());
     }

@@ -1,4 +1,5 @@
 public class Barr extends Fumm {
-	@Override
-	public void aa() {}  // Noncompliant
+    @Override
+    public void aa() {
+    }  // Noncompliant
 }

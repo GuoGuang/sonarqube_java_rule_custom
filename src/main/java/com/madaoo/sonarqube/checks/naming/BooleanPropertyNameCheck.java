@@ -7,29 +7,28 @@ import org.sonar.plugins.java.api.tree.BaseTreeVisitor;
 import org.sonar.plugins.java.api.tree.VariableTree;
 
 /**
- *
  * POJO 类中布尔类型的变量，都不要加 is 前缀
  */
 @Rule(key = "BooleanPropertyNameCheck")
 public class BooleanPropertyNameCheck extends BaseTreeVisitor implements JavaFileScanner {
 
-	private JavaFileScannerContext context;
-	private static final String ISSUE_MSG = "POJO 类中布尔类型的变量，都不要加 is 前缀";
-	private static final String BOOLEAN = "boolean";
+    private JavaFileScannerContext context;
+    private static final String ISSUE_MSG = "POJO 类中布尔类型的变量，都不要加 is 前缀";
+    private static final String BOOLEAN = "boolean";
 
-	@Override
-	public void scanFile(JavaFileScannerContext context) {
-		this.context = context;
-		scan(context.getTree());
-	}
+    @Override
+    public void scanFile(JavaFileScannerContext context) {
+        this.context = context;
+        scan(context.getTree());
+    }
 
-	@Override
-	public void visitVariable(VariableTree tree) {
-		String variableName = tree.simpleName().name();
-		boolean equalsBoolean = BOOLEAN.equalsIgnoreCase(tree.symbol().type().name());
-		if (equalsBoolean && variableName.startsWith("is")) {
-			context.reportIssue(this, tree, ISSUE_MSG);
-		}
-		super.visitVariable(tree);
-	}
+    @Override
+    public void visitVariable(VariableTree tree) {
+        String variableName = tree.simpleName().name();
+        boolean equalsBoolean = BOOLEAN.equalsIgnoreCase(tree.symbol().type().name());
+        if (equalsBoolean && variableName.startsWith("is")) {
+            context.reportIssue(this, tree, ISSUE_MSG);
+        }
+        super.visitVariable(tree);
+    }
 }

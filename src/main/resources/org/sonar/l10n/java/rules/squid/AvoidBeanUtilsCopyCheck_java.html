@@ -1,7 +1,7 @@
 <p>避免用Apache Beanutils进行属性的copy</p>
 <p>只有当两个类的属性相同才会进行处理，对不同属性的不做处理；对java.util.Date类不支持，但是对java.sql.Date支持；对Integer,Boolean,Long类型不支持，
-默认值为null，但是使用方法后默认值为0，所以要小心使用。使用的效率也比较低，因为BeanUtils.copyProperties 在其内部使用反射，
-	还有额外的内部缓存查找步骤，这将增加成本和性能，所以要谨慎使用。</p>
+    默认值为null，但是使用方法后默认值为0，所以要小心使用。使用的效率也比较低，因为BeanUtils.copyProperties 在其内部使用反射，
+    还有额外的内部缓存查找步骤，这将增加成本和性能，所以要谨慎使用。</p>
 
 <p>建议使用Mapstruct</p>
 <h2>Noncompliant Code Example</h2>

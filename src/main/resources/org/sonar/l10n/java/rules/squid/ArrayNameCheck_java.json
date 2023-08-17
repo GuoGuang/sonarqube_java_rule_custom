@@ -1,13 +1,14 @@
 {
   "title": "中括号是数组类型的一部分，数组定义如下：String[] args",
-  "type": "CODE_SMELL",  
+  "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {
     "func": "Constant\/Issue",
     "constantCost": "5min"
   },
   "tags": [
-    "pitfall","company"
+    "pitfall",
+    "company"
   ],
   "defaultSeverity": "MINOR"
 }

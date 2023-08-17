@@ -12,12 +12,13 @@ import java.util.List;
 
 /**
  * 代码最大行数限制
+ *
  * @author GuoGuang
  * @created by guoguang0536@gmail.com / 1831682775@qq.com
  * @date 2021/06/29/ 15:16:00
  */
 @Rule(key = "CodeBlockMaxLineCheck")
-public class CodeBlockMaxLineCheck  extends IssuableSubscriptionVisitor {
+public class CodeBlockMaxLineCheck extends IssuableSubscriptionVisitor {
     private static final String ISSUE_MSG = "建议函数内代码行数不要超过50行";
     private static final int DEFAULT_MAX_LINES = 50;
 
@@ -40,8 +41,8 @@ public class CodeBlockMaxLineCheck  extends IssuableSubscriptionVisitor {
 
     @Override
     public void visitNode(Tree tree) {
-        int methodLine =  (tree.lastToken().line() - tree.firstToken().line()) -1;
-        if (methodLine > DEFAULT_MAX_LINES){
+        int methodLine = (tree.lastToken().line() - tree.firstToken().line()) - 1;
+        if (methodLine > DEFAULT_MAX_LINES) {
             context.reportIssue(this, tree, ISSUE_MSG);
         }
     }
