@@ -2,10 +2,7 @@ package com.madaoo.sonarqube;
 
 import com.google.common.collect.ImmutableList;
 import com.madaoo.sonarqube.checks.code.CodeBlockMaxLineCheck;
-import com.madaoo.sonarqube.checks.comment.AbsAndInterMethodMustDocCheck;
-import com.madaoo.sonarqube.checks.comment.ClassMethodVarDocCheck;
-import com.madaoo.sonarqube.checks.comment.ClassMustHaveAuthorCheck;
-import com.madaoo.sonarqube.checks.comment.EnumConstantsMustHaveCommentCheck;
+import com.madaoo.sonarqube.checks.comment.*;
 import com.madaoo.sonarqube.checks.concurrent.AvoidExecutorsCreatePoolCheck;
 import com.madaoo.sonarqube.checks.concurrent.CreateThreadShouldPoolCheck;
 import com.madaoo.sonarqube.checks.constant.AvoidUseMagicNumberCheck;
@@ -58,6 +55,7 @@ public final class RulesList {
                 .add(SwitchCaseEndWithBreakCheck.class).add(SwitchDefaultMustLastCheck.class)
                 .add(CodeBlockMaxLineCheck.class)
                 .add(FeignClientCommentaryCheck.class)
+                .add(ServiceCommentaryCheck.class).add(ControllerCommentaryCheck.class)
                 .build();
     }
 

@@ -1,0 +1,13 @@
+{
+  "title": "Service接口需要写上类注释和方法注释，并且描述其作用",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "1min"
+  },
+  "tags": [
+    "company"
+  ],
+  "defaultSeverity": "Minor"
+}

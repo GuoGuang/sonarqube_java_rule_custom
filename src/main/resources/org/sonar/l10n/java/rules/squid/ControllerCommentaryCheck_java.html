@@ -1,0 +1,48 @@
+<p>ControllerCommentaryCheck</p>
+<h2>Noncompliant Code Example</h2>
+<pre>
+    /**
+ * <p>
+ * 促销套装表 前端控制器
+ * </p>
+ *
+ * @author inca
+ * @since 2021-03-15
+ */
+@RestController
+@RequestMapping("/suit")
+@Api(value = "套装", tags = "套装")
+@Slf4j
+public class SuitController {
+
+
+@PostMapping("/example")
+public R<IncaSteSaveVO<T>> save(@RequestBody IncaSteSaveDTO<T> incaSteSaveDTO) {
+}
+
+    }
+</pre>
+<h2>Compliant Solution</h2>
+<pre>
+    /**
+ * <p>
+ * 促销套装表 前端控制器
+ * </p>
+ *
+ * @author inca
+ * @since 2021-03-15
+ */
+@RestController
+@RequestMapping("/suit")
+@Api(value = "套装", tags = "套装")
+@Slf4j
+public class SuitController {
+
+@ApiOperation(value = "单表保存", notes = "传入incaSteSaveDTO")
+@ApiLog("示例Controller方法")
+@PostMapping("/example")
+public R<IncaSteSaveVO<T>> save(@RequestBody IncaSteSaveDTO<T> incaSteSaveDTO) {
+}
+
+}
+</pre>

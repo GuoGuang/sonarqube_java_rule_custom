@@ -1,0 +1,13 @@
+{
+  "title": "controller的 rest 方法需要使用注解@ApiLog和@ApiOperation",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "5min"
+  },
+  "tags": [
+    "pitfall","company"
+  ],
+  "defaultSeverity": "Minor"
+}

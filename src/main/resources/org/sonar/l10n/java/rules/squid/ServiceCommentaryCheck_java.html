@@ -1,0 +1,23 @@
+<p>ServiceCommentaryCheck</p>
+<h2>Noncompliant Code Example</h2>
+<pre>
+public interface ExamlpleService {
+	String aa(String tenantId);
+}
+</pre>
+<h2>Compliant Solution</h2>
+/**
+* Service接口类示例注解，必须有超过30字符，对类作用进行描述
+*/
+public interface ExamlpleService {
+/**
+* 执行示例方法统计XXXXXXXXXX，必须超过30字符，对方法进行描述
+* @param tenantId header中的租户Id
+* @return 成功或者失败
+* @throws InterruptedException
+*/
+String aa(String tenantId);
+}
+<pre>
+
+</pre>
