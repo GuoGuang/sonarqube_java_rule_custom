@@ -11,7 +11,7 @@
 
 1. git clone  https://github.com/GuoGuang/sonarqube_java_rule_custom.git
 2. mvn -DskipTests=true install
-3. 将打包好的jar放到Sonar的extensions/plugins 目录下之后重启
+3. 将打包好的jar放到Sonar的$SONAR_HOME/extensions/plugins 目录下之后重启
 
 ## 开发指南
 
