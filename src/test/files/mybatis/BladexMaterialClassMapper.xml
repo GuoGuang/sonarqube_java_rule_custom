@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.resourceextend.mapper.BaldexMaterialClassMapper">
+    <select id="treeDate"  resultMap="materiaTreelMap">
+        SELECT
+            class_id,
+            parent_id,
+            material_class_name
+        FROM
+            blade_material_class
+        WHERE
+            class_status = 0 and tenant_id = #{tenantId} and material_class_type=#{materialClassType}
+    </select>
+</mapper>

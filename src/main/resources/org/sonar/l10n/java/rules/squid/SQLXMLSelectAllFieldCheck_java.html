@@ -1,0 +1,25 @@
+<p>SQLSelectAllFieldCheck</p>
+<h2>Noncompliant Code Example</h2>
+<pre>
+    <select id="treeDate"  resultMap="materiaTreelMap">
+        SELECT
+          *
+        FROM
+            blade_material_class
+        WHERE
+            class_status = 0 and tenant_id = #{tenantId} and material_class_type=#{materialClassType}
+    </select>
+</pre>
+<h2>Compliant Solution</h2>
+<pre>
+    <select id="treeDate"  resultMap="materiaTreelMap">
+        SELECT
+            class_id,
+            parent_id,
+            material_class_name
+        FROM
+            blade_material_class
+        WHERE
+            class_status = 0 and tenant_id = #{tenantId} and material_class_type=#{materialClassType}
+    </select>
+</pre>

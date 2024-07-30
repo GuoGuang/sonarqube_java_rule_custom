@@ -55,7 +55,10 @@ public final class RulesList {
                 .add(SwitchCaseEndWithBreakCheck.class).add(SwitchDefaultMustLastCheck.class)
                 .add(CodeBlockMaxLineCheck.class)
                 .add(FeignClientCommentaryCheck.class)
-                .add(ServiceCommentaryCheck.class).add(ControllerCommentaryCheck.class)
+                .add(ServiceCommentaryCheck.class)
+                .add(ControllerCommentaryCheck.class)
+                .add(SQLSelectAllFieldCheck.class)
+                .add(SQLXMLSelectAllFieldCheck.class)
                 .build();
     }
 

@@ -1,0 +1,15 @@
+<p>SQLSelectAllFieldCheck</p>
+<h2>Noncompliant Code Example</h2>
+<pre>
+ public interface BaldexMaterialClassMapper extends BaseMapper<BaldexMaterialClass> {
+ 	@Select("SELECT * FROM baldex_material_class WHERE id in (#{ids})")
+	List<MaterialLibraryExportVO> exportLink(@Param("ids") List<Long> ids);
+}
+</pre>
+<h2>Compliant Solution</h2>
+<pre>
+public interface BladexMaterialClassMapper extends BaseMapper<BaldexMaterialClass> {
+	@Select("SELECT id FROM baldex_material_class WHERE tenant_id = #{tenantId} AND material_class_type = #{materialClassType}")
+    List<MateriaTreelDTO> treeDate(@Param("tenantId") String tenantId, @Param("materialClassType") Integer materialClassType);
+}
+</pre>

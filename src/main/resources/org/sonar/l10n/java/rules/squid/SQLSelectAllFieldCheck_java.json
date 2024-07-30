@@ -1,0 +1,14 @@
+{
+  "title": "mybatis文件的注解中的SQL语句不能包含select *！",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "5min"
+  },
+  "tags": [
+    "pitfall",
+    "company"
+  ],
+  "defaultSeverity": "Minor"
+}
