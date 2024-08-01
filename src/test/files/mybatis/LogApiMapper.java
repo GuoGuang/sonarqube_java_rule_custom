@@ -26,9 +26,9 @@ import java.util.List;
  */
 public interface LogApiMapper {
 
-    @Select("   SELECT " +
-            "            *" +
-            "        FROM" +
-            "            information_schema.TABLES ${ew.getCustomSqlSegment}")
-    List<String> selectTable();
+        @Select("   SELECT\n" +
+                "            table_name\n" +
+                "        FROM\n" +
+                "            information_schema.TABLES ${ew.getCustomSqlSegment}")
+        List<String> selectTable();
 }

@@ -2,7 +2,6 @@ package com.madaoo.sonarqube.checks.comment;
 
 import com.google.common.base.Joiner;
 import org.sonar.check.Rule;
-import org.sonar.java.model.expression.BinaryExpressionTreeImpl;
 import org.sonar.java.model.expression.LiteralTreeImpl;
 import org.sonar.plugins.java.api.JavaFileScanner;
 import org.sonar.plugins.java.api.JavaFileScannerContext;
@@ -62,8 +61,8 @@ public class SQLSelectAllFieldCheck extends BaseTreeVisitor implements JavaFileS
             Arguments arguments = annotation.arguments();
             if (arguments.size() > 0) {
                 for (ExpressionTree argument : arguments) {
-                    if (argument instanceof BinaryExpressionTreeImpl) {
-                        BinaryExpressionTreeImpl binaryExpressionTree = (BinaryExpressionTreeImpl) argument;
+                    if (argument instanceof BinaryExpressionTree) {
+                        BinaryExpressionTree binaryExpressionTree = (BinaryExpressionTree) argument;
                         String sql =Joiner.on("").join(extractAllValues(binaryExpressionTree));
                         if (sql.contains("*")) {
                             return true;
@@ -73,12 +72,11 @@ public class SQLSelectAllFieldCheck extends BaseTreeVisitor implements JavaFileS
                         if (((LiteralTreeImpl) expressionTree).value().contains("*")) {
                             return true;
                         }
-                    } else {
-                        return false;
                     }
                 }
             }
         }
+        context.reportIssue(this, tree, "4");
         return false;
     }
 
