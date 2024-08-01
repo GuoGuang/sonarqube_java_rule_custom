@@ -1,10 +1,15 @@
 package com.madaoo.sonarqube.checks.comment;
 
+import com.google.common.base.Joiner;
 import org.sonar.check.Rule;
+import org.sonar.java.model.expression.BinaryExpressionTreeImpl;
 import org.sonar.java.model.expression.LiteralTreeImpl;
 import org.sonar.plugins.java.api.JavaFileScanner;
 import org.sonar.plugins.java.api.JavaFileScannerContext;
 import org.sonar.plugins.java.api.tree.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 校验mybatis类文件的注解中的SQL语句不能包含select *
@@ -55,13 +60,53 @@ public class SQLSelectAllFieldCheck extends BaseTreeVisitor implements JavaFileS
     private boolean isContainsSelectAllAnnotation(MethodTree tree) {
         for (AnnotationTree annotation : tree.modifiers().annotations()) {
             Arguments arguments = annotation.arguments();
-            if (arguments.size() == 1) {
-                ExpressionTree expressionTree = (ExpressionTree) arguments.get(0);
-                if (((LiteralTreeImpl) expressionTree).value().contains("*")) {
-                    return true;
+            if (arguments.size() > 0) {
+                for (ExpressionTree argument : arguments) {
+                    if (argument instanceof BinaryExpressionTreeImpl) {
+                        BinaryExpressionTreeImpl binaryExpressionTree = (BinaryExpressionTreeImpl) argument;
+                        String sql =Joiner.on("").join(extractAllValues(binaryExpressionTree));
+                        if (sql.contains("*")) {
+                            return true;
+                        }
+                    } else if (argument instanceof ExpressionTree) {
+                        ExpressionTree expressionTree = (ExpressionTree) argument;
+                        if (((LiteralTreeImpl) expressionTree).value().contains("*")) {
+                            return true;
+                        }
+                    } else {
+                        return false;
+                    }
                 }
             }
         }
         return false;
+    }
+
+    // 方法用于从 BinaryExpressionTree 中提取所有子集值
+    public List<String> extractAllValues(BinaryExpressionTree binaryExpressionTree) {
+        List<String> values = new ArrayList<>();
+        // 提取左操作数的值
+        extractValuesFromExpression(binaryExpressionTree.leftOperand(), values);
+        // 提取右操作数的值
+        extractValuesFromExpression(binaryExpressionTree.rightOperand(), values);
+
+        return values;
+    }
+
+    // 递归提取表达式树中的值
+    private void extractValuesFromExpression(ExpressionTree expressionTree, List<String> values) {
+        if (expressionTree instanceof BinaryExpressionTree) {
+            BinaryExpressionTree binaryExpression = (BinaryExpressionTree) expressionTree;
+            // 递归提取左操作数的值
+            extractValuesFromExpression(binaryExpression.leftOperand(), values);
+            // 递归提取右操作数的值
+            extractValuesFromExpression(binaryExpression.rightOperand(), values);
+        } else if (expressionTree instanceof LiteralTree) {
+            // 提取文字值并添加到列表中
+            values.add(((LiteralTree) expressionTree).value().toString());
+        } else {
+            // 处理其他类型的表达式，例如方法调用等
+            values.add(expressionTree.toString());
+        }
     }
 }
