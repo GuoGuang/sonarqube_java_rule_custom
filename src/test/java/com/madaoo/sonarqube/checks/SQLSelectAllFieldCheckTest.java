@@ -8,7 +8,8 @@ public class SQLSelectAllFieldCheckTest {
 
     @Test
     public void test01() {
-        JavaCheckVerifier.verifyNoIssue("src/test/files/mybatis/LogApiMapper.java", new SQLSelectAllFieldCheck());
+//        JavaCheckVerifier.verifyNoIssue("src/test/files/mybatis/LogApiMapper.java", new SQLSelectAllFieldCheck());
+        JavaCheckVerifier.verifyNoIssue("src/test/files/mybatis/BladexMaterialClassMapper.java", new SQLSelectAllFieldCheck());
 //        XmlCheckVerifier.verifyNoIssue("src/test/files/mybatis/BladexMaterialClassMapper.xml", new SQLXMLSelectAllFieldCheck());
     }
 }

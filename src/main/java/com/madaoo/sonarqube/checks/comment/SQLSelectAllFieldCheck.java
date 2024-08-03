@@ -2,7 +2,6 @@ package com.madaoo.sonarqube.checks.comment;
 
 import com.google.common.base.Joiner;
 import org.sonar.check.Rule;
-import org.sonar.java.model.expression.LiteralTreeImpl;
 import org.sonar.plugins.java.api.JavaFileScanner;
 import org.sonar.plugins.java.api.JavaFileScannerContext;
 import org.sonar.plugins.java.api.tree.*;
@@ -56,7 +55,7 @@ public class SQLSelectAllFieldCheck extends BaseTreeVisitor implements JavaFileS
     /**
      * select 注解中是否包含*的查询语法
      */
-    private boolean isContainsSelectAllAnnotation(MethodTree tree) {
+        private boolean isContainsSelectAllAnnotation(MethodTree tree) {
         for (AnnotationTree annotation : tree.modifiers().annotations()) {
             Arguments arguments = annotation.arguments();
             if (arguments.size() > 0) {
@@ -67,9 +66,9 @@ public class SQLSelectAllFieldCheck extends BaseTreeVisitor implements JavaFileS
                         if (sql.contains("*")) {
                             return true;
                         }
-                    } else if (argument instanceof ExpressionTree) {
-                        ExpressionTree expressionTree = (ExpressionTree) argument;
-                        if (((LiteralTreeImpl) expressionTree).value().contains("*")) {
+                    } else if (argument instanceof LiteralTree) {
+                        LiteralTree literalTree = (LiteralTree) argument;
+                        if (literalTree.value().contains("*")) {
                             return true;
                         }
                     }
